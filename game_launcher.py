@@ -676,69 +676,68 @@ class GameLauncher:
         """显示打赏对话框"""
         dialog = tk.Toplevel(self.root)
         dialog.title("感谢您的支持")
-        dialog.geometry("400x550")
+        dialog.geometry("350x280")
         dialog.configure(bg="#f8f9fa")
         dialog.transient(self.root)
         dialog.grab_set()
         
         # 居中显示
         dialog.update_idletasks()
-        x = self.root.winfo_x() + (self.root.winfo_width() - 400) // 2
-        y = self.root.winfo_y() + (self.root.winfo_height() - 550) // 2
+        x = self.root.winfo_x() + (self.root.winfo_width() - 350) // 2
+        y = self.root.winfo_y() + (self.root.winfo_height() - 280) // 2
         dialog.geometry(f"+{x}+{y}")
         
         # 标题
         title_label = tk.Label(dialog, text="💖 感谢您的支持", 
-                             font=("Microsoft YaHei", 18, "bold"),
+                             font=("Microsoft YaHei", 16, "bold"),
                              bg="#f8f9fa", fg="#4a90e2")
-        title_label.pack(pady=(20, 10))
+        title_label.pack(pady=(15, 10))
         
         # 说明文字
         info_label = tk.Label(dialog, text="如果您觉得这个软件对您有帮助，\n欢迎打赏支持作者继续开发！",
-                            font=("Microsoft YaHei", 10),
+                            font=("Microsoft YaHei", 9),
                             bg="#f8f9fa", fg="#7f8c8d",
                             justify=tk.CENTER)
-        info_label.pack(pady=(0, 20))
+        info_label.pack(pady=(0, 15))
         
-        # 查找打赏图片
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        donate_image_path = os.path.join(script_dir, "感谢打赏.jpg")
-        
-        # 尝试显示图片
-        image_label = None
-        try:
+        # 打开图片按钮
+        def open_donate_image():
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            donate_image_path = os.path.join(script_dir, "感谢打赏.jpg")
             if os.path.exists(donate_image_path):
-                photo = tk.PhotoImage(file=donate_image_path)
-                image_label = tk.Label(dialog, image=photo, bg="#f8f9fa")
-                image_label.image = photo  # 保持引用
-                image_label.pack(pady=(0, 20))
+                try:
+                    os.startfile(donate_image_path)
+                except Exception as e:
+                    messagebox.showerror("错误", f"无法打开图片: {str(e)}")
             else:
-                error_label = tk.Label(dialog, text="未找到打赏二维码图片", 
-                                     font=("Microsoft YaHei", 10),
-                                     bg="#f8f9fa", fg="#e74c3c")
-                error_label.pack(pady=(0, 20))
-        except Exception as e:
-            error_label = tk.Label(dialog, text=f"图片加载失败: {str(e)}", 
-                                 font=("Microsoft YaHei", 10),
-                                 bg="#f8f9fa", fg="#e74c3c")
-            error_label.pack(pady=(0, 20))
+                messagebox.showerror("错误", "未找到打赏二维码图片")
+        
+        open_button = tk.Button(dialog, text="📷 打开微信收款码",
+                              font=("Microsoft YaHei", 10, "bold"),
+                              bg="#5cb85c", fg="white",
+                              activebackground="#4cae4c",
+                              activeforeground="white",
+                              relief="flat",
+                              padx=20, pady=10,
+                              command=open_donate_image)
+        open_button.pack(pady=(0, 15))
         
         # 感谢文字
         thanks_label = tk.Label(dialog, text="再次感谢您的支持！🙏",
-                              font=("Microsoft YaHei", 11, "bold"),
+                              font=("Microsoft YaHei", 10, "bold"),
                               bg="#f8f9fa", fg="#5cb85c")
-        thanks_label.pack(pady=(0, 20))
+        thanks_label.pack(pady=(0, 15))
         
         # 关闭按钮
         close_button = tk.Button(dialog, text="关闭",
-                               font=("Microsoft YaHei", 10),
+                               font=("Microsoft YaHei", 9),
                                bg="#4a90e2", fg="white",
                                activebackground="#357abd",
                                activeforeground="white",
                                relief="flat",
-                               padx=30, pady=8,
+                               padx=25, pady=6,
                                command=dialog.destroy)
-        close_button.pack(pady=(0, 20))
+        close_button.pack()
 
     def run(self):
         try:
