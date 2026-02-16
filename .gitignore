@@ -62,3 +62,6 @@ SteamEmu/
 # 其他
 *.pyc
 *.pyo
+
+# 游戏数据文件（个人数据，不应提交）
+game_library.json
