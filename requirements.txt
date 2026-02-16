@@ -1,0 +1,20 @@
+# 游戏启动器 - 依赖包列表
+# Game Launcher - Requirements
+
+# 本项目主要使用Python标准库，无需额外安装依赖包
+# This project mainly uses Python standard libraries, no additional dependencies required
+
+# Python版本要求 / Python Version Requirement
+# Python 3.8+
+
+# 标准库 / Standard Libraries Used:
+# - tkinter (GUI框架)
+# - json (数据存储)
+# - os (文件系统操作)
+# - subprocess (进程管理)
+# - winreg (注册表操作)
+# - threading (多线程)
+# - typing (类型提示)
+
+# 打包工具 / Build Tool (仅用于打包，运行时不需要 / Only for building)
+pyinstaller>=6.0.0

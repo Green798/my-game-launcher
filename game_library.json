@@ -1,0 +1,205 @@
+{
+  "games": [
+    {
+      "name": "虚拟桌宠模拟器",
+      "platform": "Steam",
+      "executable": "E:\\SteamLibrary\\steamapps\\common\\VPet\\VPet-Simulator.Windows.exe",
+      "size": "1.20 GB",
+      "directory": "E:\\SteamLibrary\\steamapps\\common\\VPet",
+      "category": "涩涩"
+    },
+    {
+      "name": "WRC 7",
+      "platform": "Steam",
+      "executable": "E:\\SteamLibrary\\steamapps\\common\\WRC 7\\WRC7.exe",
+      "size": "18.96 GB",
+      "directory": "E:\\SteamLibrary\\steamapps\\common\\WRC 7",
+      "category": "赛车游戏"
+    },
+    {
+      "name": "妹居物语 Demo",
+      "platform": "Steam",
+      "executable": "D:\\SteamLibrary\\steamapps\\common\\MeijuStory_Demo\\妹居物语.exe",
+      "size": "4.27 GB",
+      "directory": "D:\\SteamLibrary\\steamapps\\common\\MeijuStory_Demo",
+      "category": "涩涩"
+    },
+    {
+      "name": "Assetto Corsa Competizione",
+      "platform": "独立游戏",
+      "executable": "E:\\Assetto Corsa Competizione\\Assetto Corsa Competizione (2019)\\Assetto Corsa Competizione\\acc.exe",
+      "size": "18.95 GB",
+      "directory": "E:\\Assetto Corsa Competizione\\Assetto Corsa Competizione (2019)\\Assetto Corsa Competizione",
+      "category": "赛车游戏"
+    },
+    {
+      "name": "Assetto Corsa Rally",
+      "platform": "独立游戏",
+      "executable": "E:\\AssettoCorsaRally\\Assetto.Corsa.Rally-InsaneRamZes\\acr\\Binaries\\Win64\\acr.exe",
+      "size": "21.61 GB",
+      "directory": "E:\\AssettoCorsaRally\\Assetto.Corsa.Rally-InsaneRamZes",
+      "category": "赛车游戏"
+    },
+    {
+      "name": "妖夢",
+      "platform": "独立游戏",
+      "executable": "E:\\Xiazy\\YAOMENG\\pc\\game\\youmuin.exe",
+      "size": "14.26 GB",
+      "directory": "E:\\Xiazy\\YAOMENG\\pc",
+      "category": "涩涩"
+    },
+    {
+      "name": "无畏契约 (VALORANT)",
+      "platform": "WeGame",
+      "executable": "E:\\WeGameApps\\rail_apps\\无畏契约(2001715)\\live\\ShooterGame\\Binaries\\Win64\\VALORANT-Win64-Shipping.exe",
+      "size": "28.59 GB",
+      "directory": "E:\\WeGameApps\\rail_apps\\无畏契约(2001715)",
+      "category": "射击游戏"
+    },
+    {
+      "name": "Darkwood",
+      "platform": "独立游戏",
+      "executable": "E:\\TJX2\\Darkwood.v1.4.2-20195\\Darkwood.exe",
+      "size": "4.54 GB",
+      "directory": "E:\\TJX2\\Darkwood.v1.4.2-20195",
+      "category": "冒险探索"
+    },
+    {
+      "name": "Cities Skylines II (城市：天际线2)",
+      "platform": "独立游戏",
+      "executable": "E:\\TJX2\\main\\Cities Skylines II\\Cities2.exe",
+      "size": "68.79 GB",
+      "directory": "E:\\TJX2\\main\\Cities Skylines II",
+      "category": "模拟经营"
+    },
+    {
+      "name": "No Man's Sky (无人深空)",
+      "platform": "独立游戏",
+      "executable": "E:\\TJX2\\NoMans\\No Man's Sky\\Binaries\\NMS.exe",
+      "size": "26.12 GB",
+      "directory": "E:\\TJX2\\NoMans\\No Man's Sky",
+      "category": "冒险探索"
+    },
+    {
+      "name": "Outer Wilds (星际拓荒)",
+      "platform": "独立游戏",
+      "executable": "E:\\TJX2\\Outer Wilds v1.1.15\\OuterWilds.exe",
+      "size": "10.85 GB",
+      "directory": "E:\\TJX2\\Outer Wilds v1.1.15",
+      "category": "冒险探索"
+    },
+    {
+      "name": "Stellaris (群星)",
+      "platform": "独立游戏",
+      "executable": "E:\\TJX2\\Stellaris\\Stellaris\\stellaris.exe",
+      "size": "31.16 GB",
+      "directory": "E:\\TJX2\\Stellaris\\Stellaris",
+      "category": "模拟经营"
+    },
+    {
+      "name": "Titanfall 2 (泰坦陨落2)",
+      "platform": "独立游戏",
+      "executable": "E:\\TJX2\\TaiTan2\\Titanfall 2 Ultimate Edition\\Titanfall2.exe",
+      "size": "58.10 GB",
+      "directory": "E:\\TJX2\\TaiTan2\\Titanfall 2 Ultimate Edition",
+      "category": "射击游戏"
+    },
+    {
+      "name": "四叶草",
+      "platform": "独立游戏",
+      "executable": "D:/电子书/其他/X/四叶草/pc夏色四叶草/SummerClover v1.09/SummerClover.exe",
+      "size": "5.02 GB",
+      "directory": "D:/电子书/其他/X/四叶草/pc夏色四叶草/SummerClover v1.09",
+      "category": "涩涩"
+    },
+    {
+      "name": "千恋万花",
+      "platform": "独立游戏",
+      "executable": "D:/电子书/其他/X\\千恋万花\\SKa\\SenrenBanka.exe",
+      "directory": "D:/电子书/其他/X\\千恋万花\\SKa",
+      "size": "9.49 GB",
+      "category": "涩涩"
+    },
+    {
+      "name": "HypnoApp2",
+      "platform": "独立游戏",
+      "executable": "D:/电子书/其他/X/HypnoApp2_v0.5.0/HypnoApp2.exe",
+      "size": "4.55 GB",
+      "directory": "D:/电子书/其他/X/HypnoApp2_v0.5.0",
+      "category": "涩涩"
+    },
+    {
+      "name": "夏之音",
+      "platform": "独立游戏",
+      "executable": "E:/Xiazy/01345/08/05/GalHome/Binaries/Win64/GalHome-Win64-Shipping.exe",
+      "size": "175.52 MB",
+      "directory": "E:/Xiazy/01345/08/05",
+      "args": "-dx11",
+      "category": "涩涩"
+    },
+    {
+      "name": "banagana",
+      "platform": "独立游戏",
+      "executable": "D:/电子书/其他/X/儅儅亊僇僲/mamakano.exe",
+      "size": "4.33 GB",
+      "directory": "D:/电子书/其他/X/儅儅亊僇僲",
+      "category": "涩涩"
+    },
+    {
+      "name": "老3D",
+      "platform": "独立游戏",
+      "executable": "D:/电子书/其他/3D/FreshWomen.exe",
+      "size": "4.54 GB",
+      "directory": "D:/电子书/其他/3D",
+      "category": "涩涩"
+    }
+  ],
+  "platforms": [
+    {
+      "name": "Steam",
+      "executable": "未找到，需要手动搜索"
+    },
+    {
+      "name": "WeGame",
+      "executable": "E:\\软件\\WeGame\\wegame.exe",
+      "size": "未计算"
+    },
+    {
+      "name": "Plain Craft Launcher 2 (Minecraft启动器)",
+      "executable": "E:\\软件\\MC\\PCL 正式版 2.8.13\\Plain Craft Launcher 2.exe",
+      "size": "未计算"
+    }
+  ],
+  "categories": [
+    {
+      "name": "全部",
+      "color": "#95a5a6"
+    },
+    {
+      "name": "赛车游戏",
+      "color": "#e74c3c"
+    },
+    {
+      "name": "射击游戏",
+      "color": "#3498db"
+    },
+    {
+      "name": "模拟经营",
+      "color": "#2ecc71"
+    },
+    {
+      "name": "冒险探索",
+      "color": "#9b59b6"
+    },
+    {
+      "name": "涩涩",
+      "color": "#f870d6"
+    }
+  ],
+  "summary": {
+    "total_games": 19,
+    "total_size": "335.50 GB",
+    "platforms_count": 3,
+    "categories_count": 6
+  }
+}
