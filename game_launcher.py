@@ -139,7 +139,21 @@ class GameLauncher:
             print(f"成功加载 {len(self.categories)} 个分类")
         except json.JSONDecodeError as e:
             print(f"JSON解析错误: {e}")
-            messagebox.showerror("错误", f"数据文件格式错误:\n{str(e)}")
+            print("自动重新初始化数据文件...")
+            # 文件为空或格式错误，自动重新初始化
+            initial_data = {
+                "games": [],
+                "platforms": [],
+                "categories": [{"name": "全部", "color": "#95a5a6"}],
+                "summary": {
+                    "total_games": 0,
+                    "total_size": "0.00 MB",
+                    "platforms_count": 0,
+                    "categories_count": 1
+                }
+            }
+            with open(self.data_file, 'w', encoding='utf-8') as f:
+                json.dump(initial_data, f, ensure_ascii=False, indent=2)
             self.games = []
             self.platforms = []
             self.categories = [{'name': '全部', 'color': '#95a5a6'}]
