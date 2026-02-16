@@ -204,7 +204,7 @@ pyinstaller --clean game_launcher.spec
 
 - **项目主页**: [GitHub](https://github.com/你的用户名/game-launcher)
 - **问题反馈**: [GitHub Issues](https://github.com/你的用户名/game-launcher/issues)
-- **Email**: [你的邮箱]
+- **Email**: 3909545518@qq.com
 
 ## 🙏 致谢
 
