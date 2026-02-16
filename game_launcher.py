@@ -133,6 +133,21 @@ class GameLauncher:
                 self.games = data.get('games', [])
                 self.platforms = data.get('platforms', [])
                 self.categories = data.get('categories', [{'name': '全部', 'color': '#95a5a6'}])
+                
+                # 兼容旧数据：为没有ID的分类生成ID
+                for cat in self.categories:
+                    if 'id' not in cat:
+                        import uuid
+                        cat['id'] = str(uuid.uuid4())
+                
+                # 兼容旧数据：为没有category_id的游戏根据分类名称添加ID
+                for game in self.games:
+                    if 'category_id' not in game and 'category' in game:
+                        category_name = game['category']
+                        for cat in self.categories:
+                            if cat['name'] == category_name:
+                                game['category_id'] = cat['id']
+                                break
             
             print(f"成功加载 {len(self.games)} 个游戏")
             print(f"成功加载 {len(self.platforms)} 个平台")
@@ -395,6 +410,14 @@ class GameLauncher:
         search_text = self.search_var.get().lower()
         category_name = self.current_category.get()
         
+        # 找到选中分类的ID
+        selected_category_id = None
+        if category_name != '全部':
+            for cat in self.categories:
+                if cat['name'] == category_name:
+                    selected_category_id = cat.get('id')
+                    break
+        
         for item in self.game_tree.get_children():
             self.game_tree.delete(item)
         
@@ -403,9 +426,14 @@ class GameLauncher:
             search_match = (search_text in game['name'].lower() or 
                           search_text in game['platform'].lower())
             
-            # 检查分类匹配
-            category_match = (category_name == '全部' or 
-                            game.get('category', '未分类') == category_name)
+            # 检查分类匹配（使用category_id，但兼容旧数据使用category）
+            category_match = False
+            if category_name == '全部':
+                category_match = True
+            elif selected_category_id and game.get('category_id') == selected_category_id:
+                category_match = True
+            elif game.get('category') == category_name:
+                category_match = True
             
             if search_match and category_match:
                 self.game_tree.insert('', tk.END, values=(
@@ -660,6 +688,11 @@ class GameLauncher:
             game["executable"] = new_exe
             game["directory"] = new_directory
             game["size"] = new_size
+            # 根据分类名称查找并更新category_id
+            for cat in self.categories:
+                if cat['name'] == new_category:
+                    game['category_id'] = cat.get('id')
+                    break
             self.save_data()
             self.refresh_data()
             messagebox.showinfo("成功", "游戏 '" + new_name + "' 信息已更新")

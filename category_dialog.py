@@ -418,25 +418,38 @@ class CategoryDialog:
             messagebox.showwarning("提示", "请先在左侧选择一个目标分类！")
             return
         
+        # 找到选中分类的ID
+        selected_category_id = None
+        selected_category_name = self.selected_category
+        for cat in self.categories:
+            if cat['name'] == selected_category_name:
+                selected_category_id = cat.get('id')
+                break
+        
+        if not selected_category_id:
+            messagebox.showwarning("提示", "分类ID不存在，请重新选择分类！")
+            return
+        
         # 检查是否选择了游戏
         if not self.selected_games:
             messagebox.showwarning("提示", "请先在右侧选择要移动的游戏！")
             return
         
-        # 更新游戏分类
+        # 更新游戏分类（使用category_id）
         moved_count = 0
         for game in self.games:
             if game['name'] in self.selected_games:
                 old_category = game.get('category', '未分类')
-                game['category'] = self.selected_category
+                game['category'] = selected_category_name  # 保留名称用于显示
+                game['category_id'] = selected_category_id  # 使用ID进行关联
                 moved_count += 1
-                print(f"移动游戏 '{game['name']}' 从 '{old_category}' 到 '{self.selected_category}'")
+                print(f"移动游戏 '{game['name']}' 从 '{old_category}' 到 '{selected_category_name}'")
         
         if moved_count > 0:
             self.selected_games.clear()  # 清空选中状态
             self.load_categories()
             self.load_games()
-            messagebox.showinfo("成功", f"已将 {moved_count} 个游戏移动到 '{self.selected_category}' 分类")
+            messagebox.showinfo("成功", f"已将 {moved_count} 个游戏移动到 '{selected_category_name}' 分类")
         else:
             messagebox.showwarning("提示", "没有游戏被移动")
     
@@ -541,13 +554,15 @@ class CategoryDialog:
                     return
             
             if category:
-                # 编辑现有分类
+                # 编辑现有分类，保持ID不变
                 category['name'] = name
                 category['color'] = color
                 messagebox.showinfo("成功", f"分类 '{name}' 已更新")
             else:
-                # 添加新分类
+                # 添加新分类，生成唯一ID
+                import uuid
                 self.categories.append({
+                    'id': str(uuid.uuid4()),
                     'name': name,
                     'color': color
                 })
