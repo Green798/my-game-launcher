@@ -17,7 +17,13 @@ from category_dialog import CategoryDialog
 class GameLauncher:
     def __init__(self, data_file: str = None):
         if data_file is None:
-            script_dir = os.path.dirname(os.path.abspath(__file__))
+            # 判断是否为打包后的exe文件
+            if getattr(sys, 'frozen', False):
+                # 打包后，使用exe文件所在目录
+                script_dir = os.path.dirname(os.path.abspath(sys.executable))
+            else:
+                # 开发环境，使用脚本文件所在目录
+                script_dir = os.path.dirname(os.path.abspath(__file__))
             data_file = os.path.join(script_dir, "game_library.json")
         
         self.data_file = data_file
