@@ -65,3 +65,22 @@ SteamEmu/
 
 # 游戏数据文件（个人数据，不应提交）
 game_library.json
+
+# 项目文档（内部使用，不应提交）
+BUILD_GUIDE.md
+PROJECT_PLAN.txt
+PROJECT_PROGRESS.txt
+VERSION.txt
+
+# 推荐文案（个人使用，不应提交）
+博主推荐文案.md
+致*.md
+
+# 打赏相关（个人收款码，不应提交）
+感谢打赏.*
+
+# 压缩包文件（发布文件单独管理）
+*.zip
+
+# 不上传的文件夹
+Do not upload/
