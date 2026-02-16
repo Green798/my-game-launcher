@@ -34,6 +34,8 @@ if exist "dist\GameLauncher.exe" (
     echo 创建空的game_library.json文件...
     echo {"games": [], "platforms": [], "categories": [{"name": "全部", "color": "#95a5a6"}], "summary": {"total_games": 0, "total_size": "0.00 MB", "platforms_count": 0, "categories_count": 1}} > "release\game_library.json"
     if exist "使用说明.txt" copy "使用说明.txt" "release\" >nul
+    if exist "发布说明.txt" copy "发布说明.txt" "release\" >nul
+    if exist "感谢打赏.jpg" copy "感谢打赏.jpg" "release\" >nul
     echo 文件复制完成
 )
 echo.

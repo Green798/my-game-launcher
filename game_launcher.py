@@ -297,6 +297,10 @@ class GameLauncher:
         ttk.Label(stats_frame, text=f"数据文件:", style='Info.TLabel').pack(anchor=tk.W, padx=10, pady=5)
         ttk.Label(stats_frame, text=self.data_file, style='Info.TLabel', wraplength=300).pack(anchor=tk.W, padx=10, pady=(0, 5))
         
+        # 打赏按钮
+        donate_button = ttk.Button(stats_frame, text="💖 打赏作者", command=self.show_donate_dialog)
+        donate_button.pack(fill=tk.X, padx=10, pady=(10, 5))
+        
     def load_games_to_list(self):
         # 初始化分类列表
         self.update_category_list()
@@ -667,6 +671,74 @@ class GameLauncher:
         filename = filedialog.askopenfilename(title="选择游戏可执行文件", filetypes=[("可执行文件", "*.exe"), ("所有文件", "*.*")])
         if filename:
             var.set(filename)
+    
+    def show_donate_dialog(self):
+        """显示打赏对话框"""
+        dialog = tk.Toplevel(self.root)
+        dialog.title("感谢您的支持")
+        dialog.geometry("400x550")
+        dialog.configure(bg="#f8f9fa")
+        dialog.transient(self.root)
+        dialog.grab_set()
+        
+        # 居中显示
+        dialog.update_idletasks()
+        x = self.root.winfo_x() + (self.root.winfo_width() - 400) // 2
+        y = self.root.winfo_y() + (self.root.winfo_height() - 550) // 2
+        dialog.geometry(f"+{x}+{y}")
+        
+        # 标题
+        title_label = tk.Label(dialog, text="💖 感谢您的支持", 
+                             font=("Microsoft YaHei", 18, "bold"),
+                             bg="#f8f9fa", fg="#4a90e2")
+        title_label.pack(pady=(20, 10))
+        
+        # 说明文字
+        info_label = tk.Label(dialog, text="如果您觉得这个软件对您有帮助，\n欢迎打赏支持作者继续开发！",
+                            font=("Microsoft YaHei", 10),
+                            bg="#f8f9fa", fg="#7f8c8d",
+                            justify=tk.CENTER)
+        info_label.pack(pady=(0, 20))
+        
+        # 查找打赏图片
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        donate_image_path = os.path.join(script_dir, "感谢打赏.jpg")
+        
+        # 尝试显示图片
+        image_label = None
+        try:
+            if os.path.exists(donate_image_path):
+                photo = tk.PhotoImage(file=donate_image_path)
+                image_label = tk.Label(dialog, image=photo, bg="#f8f9fa")
+                image_label.image = photo  # 保持引用
+                image_label.pack(pady=(0, 20))
+            else:
+                error_label = tk.Label(dialog, text="未找到打赏二维码图片", 
+                                     font=("Microsoft YaHei", 10),
+                                     bg="#f8f9fa", fg="#e74c3c")
+                error_label.pack(pady=(0, 20))
+        except Exception as e:
+            error_label = tk.Label(dialog, text=f"图片加载失败: {str(e)}", 
+                                 font=("Microsoft YaHei", 10),
+                                 bg="#f8f9fa", fg="#e74c3c")
+            error_label.pack(pady=(0, 20))
+        
+        # 感谢文字
+        thanks_label = tk.Label(dialog, text="再次感谢您的支持！🙏",
+                              font=("Microsoft YaHei", 11, "bold"),
+                              bg="#f8f9fa", fg="#5cb85c")
+        thanks_label.pack(pady=(0, 20))
+        
+        # 关闭按钮
+        close_button = tk.Button(dialog, text="关闭",
+                               font=("Microsoft YaHei", 10),
+                               bg="#4a90e2", fg="white",
+                               activebackground="#357abd",
+                               activeforeground="white",
+                               relief="flat",
+                               padx=30, pady=8,
+                               command=dialog.destroy)
+        close_button.pack(pady=(0, 20))
 
     def run(self):
         try:
