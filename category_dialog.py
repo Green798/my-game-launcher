@@ -555,8 +555,13 @@ class CategoryDialog:
             
             if category:
                 # 编辑现有分类，保持ID不变
+                old_name = category['name']
                 category['name'] = name
                 category['color'] = color
+                # 同步更新所有相关游戏的category字段
+                for game in self.games:
+                    if game.get('category') == old_name or game.get('category_id') == category['id']:
+                        game['category'] = name
                 messagebox.showinfo("成功", f"分类 '{name}' 已更新")
             else:
                 # 添加新分类，生成唯一ID
@@ -569,6 +574,7 @@ class CategoryDialog:
                 messagebox.showinfo("成功", f"分类 '{name}' 已添加")
             
             self.load_categories()
+            self.load_games()
             dialog.destroy()
         
         tk.Button(
